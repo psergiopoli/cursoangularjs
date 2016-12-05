@@ -41,7 +41,7 @@
       </li>
 
      </ul>
-     <div ng-show="tbc.items | bought"  class="emptyMessage">{{tbc.message}}</div>
+     <div ng-show="tbc.items.length===0"  class="emptyMessage">{{tbc.message}}</div>
     </div>
 
     <!-- Already Bought List -->
@@ -52,7 +52,7 @@
        <li ng-if="item.bought">Bought {{ item.name }}</li>
 
      </ul>
-     <div ng-show="abc.items | boughtEmpty" class="emptyMessage">{{abc.message}}</div>
+     <div ng-show="abc.items.length===6" class="emptyMessage">{{abc.message}}</div>
     </div>
   </div>
 </div>
