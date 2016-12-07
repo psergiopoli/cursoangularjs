@@ -49,10 +49,10 @@
      <h2>Already Bought:</h2>
      <ul <ul ng-repeat="item in abc.items">
 
-       <li ng-if="item.bought">Bought {{ item.name }}</li>
+       <li>Bought {{ item.name }}</li>
 
      </ul>
-     <div ng-show="abc.items.length===6" class="emptyMessage">{{abc.message}}</div>
+     <div ng-show="abc.items.length===0" class="emptyMessage">{{abc.message}}</div>
     </div>
   </div>
 </div>

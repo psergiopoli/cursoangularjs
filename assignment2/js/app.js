@@ -21,7 +21,7 @@ function ToBuyController(ShoppingListService){
 AlreadyBoughtController.$inject = ['ShoppingListService'];
 function AlreadyBoughtController(ShoppingListService){
   var controller = this;
-  this.items = ShoppingListService.getShoppingItems();
+  this.items = ShoppingListService.getBoughtItems();
   this.message = 'Nothing bought yet.';
 };
 
@@ -38,13 +38,18 @@ function ShoppingListService(){
     {name:'50 cookies'}
   ];
 
-  service.buyItem = function(index){
+  service.buyItem = function(index){	  
+    boughtItems.push(shoppingItems[index]);
     shoppingItems.splice(index,1);
-    boughtItems.push(shoppingItems);
+	console.log(boughtItems);
   };
 
   service.getShoppingItems = function(){
     return shoppingItems;
+  };
+  
+  service.getBoughtItems = function(){
+    return boughtItems;
   };
 }
 
