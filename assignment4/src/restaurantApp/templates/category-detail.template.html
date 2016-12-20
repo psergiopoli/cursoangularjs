@@ -1,0 +1,9 @@
+<div>
+	<h3>Menu</h3>
+</div>
+
+<ul>
+  <li ng-repeat="item in category.items">
+    {{ item.name }} - {{item.price_large | currency}}
+  </li>
+</ul>
