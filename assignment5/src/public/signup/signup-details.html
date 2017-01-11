@@ -68,7 +68,7 @@
          <div class="form-group col-xs-4">
            <label for="menuid">Favorite Dish menu number:</label>
            <input type="text" class="form-control" name="favorite-dish" placeholder="(e.g. A11 or B16 or SP8 or SR43 or L28)"
-             ng-model="$ctrl.user.favmenuid">
+             ng-model="$ctrl.user.favmenuid" ng-blur="$ctrl.validMenu()">
              <span class="alert-warning" ng-if="$ctrl.user.menuid_invalid">
                No such menu number exists.
              </span>

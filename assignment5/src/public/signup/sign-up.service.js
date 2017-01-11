@@ -3,7 +3,6 @@
 
 angular.module('public')
 .service('SignUpService', SignUpService)
-.constant('ApiPath', 'https://weffendi-course5.herokuapp.com')
 
 SignUpService.$inject = ['$http', 'ApiPath']
 function SignUpService($http, ApiPath) {
@@ -19,7 +18,6 @@ function SignUpService($http, ApiPath) {
 
   service.persist = function(data) {
     window.localStorage['myinfo'] = JSON.stringify(data);
-    console.log('teste12345678');
   }
 
   service.getMyInfo = function() {

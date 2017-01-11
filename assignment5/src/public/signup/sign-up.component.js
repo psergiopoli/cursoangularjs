@@ -15,18 +15,19 @@ function SignUpComponentController($rootScope, SignUpService,$state) {
   $ctrl.user = {};
 
   $ctrl.submit = function () {
-    SignUpService.checkMenuId($ctrl.user.favmenuid);
-      var menuIdInvalid = $ctrl.user.on;
-    if (menuIdInvalid) {
+    var promisse = SignUpService.checkMenuId($ctrl.user.favmenuid);
+
+    
+    promisse.success(function(response) {
+      $ctrl.user.menuid_invalid = false;
+      $ctrl.user.completed = true;      
+      SignUpService.persist($ctrl.user);
+      //$state.go('public.menuitems',{category: $ctrl.user.favmenuid});
+    }).error(function(data, status) {
       $ctrl.user.menuid_invalid = true;
       $ctrl.user.completed = false;
-    } else {
-      $ctrl.user.menuid_invalid = false;;
-      SignUpService.persist($ctrl.user);
-      $ctrl.user.completed = true;
-      $state.go('public.myinfo');
-    }
-    
+    });
+        
   }
 }
 
